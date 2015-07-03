@@ -1,6 +1,8 @@
 <header class="header">
   <h1>TODOs</h1>
-  <input class="new-todo" placeholder="Nova lista..." autofocus>
+  <%= form_tag(list_index_path) do %>
+    <input class="new-todo" name="list[name]" placeholder="Nova lista..." autofocus>
+  <% end %>
 </header>
 <section class="main">
   <input class="toggle-all" type="checkbox">
