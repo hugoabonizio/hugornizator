@@ -12,6 +12,10 @@ class ListController < ApplicationController
     end
   end
   
+  def show
+    @list = List.find(params.require(:id))
+  end
+  
   def destroy
     List.where(user_id: current_user.id, id: params.require(:id)).destroy_all
     redirect_to root_path

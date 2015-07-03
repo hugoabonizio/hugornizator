@@ -12,7 +12,7 @@
       <li>
         <div class="view">
           <input class="toggle" type="checkbox">
-          <label><%= list.name %></label>
+          <label><%= link_to list.name, list %></label>
           <%= link_to list, method: :delete do %>
             <button class="destroy"></button>
           <% end %>
