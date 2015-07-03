@@ -9,11 +9,13 @@
   <label for="toggle-all">Mark all as complete</label>
   <ul class="todo-list">
     <% @list.tasks.each do |task| %>
-      <li >
+      <li <%= %[class="completed"] if task.status == 1 %>>
         <div class="view">
           <input class="toggle" type="checkbox" <%= "checked" if task.status == 1 %>>
           <label><%= task.name %></label>
-          <button class="destroy"></button>
+          <%= link_to [@list, task], method: :delete do %>
+            <button class="destroy"></button>
+          <% end %>
         </div>
         <input class="edit" value="Create a TodoMVC template">
       </li>

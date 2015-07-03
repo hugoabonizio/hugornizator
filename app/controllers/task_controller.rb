@@ -5,4 +5,9 @@ class TaskController < ApplicationController
       redirect_to list_path(params[:list_id])
     end
   end
+  
+  def destroy
+    Task.find(params.require(:id)).destroy
+    redirect_to list_path(params[:list_id])
+  end
 end
