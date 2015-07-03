@@ -1,2 +1,36 @@
-<h1>List#index</h1>
-<p>Find me in app/views/list/index.html.erb</p>
+<header class="header">
+  <h1>TODOs</h1>
+  <input class="new-todo" placeholder="Nova lista..." autofocus>
+</header>
+<section class="main">
+  <input class="toggle-all" type="checkbox">
+  <label for="toggle-all">Mark all as complete</label>
+  <ul class="todo-list">
+    <% @lists.each do |list| %>
+      <li>
+        <div class="view">
+          <input class="toggle" type="checkbox">
+          <label><%= list.name %></label>
+          <button class="destroy"></button>
+        </div>
+        <input class="edit" value="Rule the web">
+      </li>
+    <% end %>
+  </ul>
+</section>
+
+<!-- <footer class="footer">
+  <span class="todo-count"><strong>0</strong> item left</span>
+  <ul class="filters">
+    <li>
+      <a class="selected" href="#/">All</a>
+    </li>
+    <li>
+      <a href="#/active">Active</a>
+    </li>
+    <li>
+      <a href="#/completed">Completed</a>
+    </li>
+  </ul>
+  <button class="clear-completed">Clear completed</button>
+</footer> -->
