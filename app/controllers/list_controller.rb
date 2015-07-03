@@ -11,4 +11,9 @@ class ListController < ApplicationController
       redirect_to root_path
     end
   end
+  
+  def destroy
+    List.where(user_id: current_user.id, id: params.require(:id)).destroy_all
+    redirect_to root_path
+  end
 end

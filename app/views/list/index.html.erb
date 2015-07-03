@@ -13,7 +13,9 @@
         <div class="view">
           <input class="toggle" type="checkbox">
           <label><%= list.name %></label>
-          <button class="destroy"></button>
+          <%= link_to list, method: :delete do %>
+            <button class="destroy"></button>
+          <% end %>
         </div>
         <input class="edit" value="Rule the web">
       </li>
