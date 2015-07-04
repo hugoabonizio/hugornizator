@@ -19,3 +19,9 @@ a {
   color: inherit;
 }
 a label { cursor: pointer; }
+
+.back-button {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
