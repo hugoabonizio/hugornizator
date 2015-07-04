@@ -36,13 +36,13 @@
     <!-- Remove this if you don't implement routing -->
     <ul class="filters">
       <li>
-        <a class="selected" href="#/">All</a>
+        <a class="selected" href="#/" data-filter="all">All</a>
       </li>
       <li>
-        <a href="#/active">Active</a>
+        <a href="#/active" data-filter="active">Active</a>
       </li>
       <li>
-        <a href="#/completed">Completed</a>
+        <a href="#/completed" data-filter="completed">Completed</a>
       </li>
     </ul>
     <%= link_to list_clear_path(@list), method: :post do %>
