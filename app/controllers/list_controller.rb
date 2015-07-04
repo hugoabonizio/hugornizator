@@ -14,6 +14,8 @@ class ListController < ApplicationController
   
   def show
     @list = List.find(params.require(:id))
+    @tasks = @list.tasks
+    @left = @tasks.select { |task| !task.status? }.size
   end
   
   def destroy
