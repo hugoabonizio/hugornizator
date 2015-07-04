@@ -15,7 +15,7 @@ class ListController < ApplicationController
   def show
     @list = List.find(params.require(:id))
     @tasks = @list.tasks
-    @left = @tasks.select { |task| !task.status? }.size
+    @left = @tasks.select { |task| !task.complete? }.size
   end
   
   def destroy
@@ -24,7 +24,7 @@ class ListController < ApplicationController
   end
   
   def clear
-    Task.where(list_id: params.require(:list_id), status: true).destroy_all
+    Task.where(list_id: params.require(:list_id), complete: true).destroy_all
     redirect_to list_path(params.require(:list_id))
   end
 end
