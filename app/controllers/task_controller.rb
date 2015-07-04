@@ -10,4 +10,8 @@ class TaskController < ApplicationController
     Task.find(params.require(:id)).destroy
     redirect_to list_path(params[:list_id])
   end
+  
+  def toggle
+    
+  end
 end

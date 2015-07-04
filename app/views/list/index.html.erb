@@ -1,40 +1,42 @@
-<header class="header">
-  <h1>TODOs</h1>
-  <%= form_tag(list_index_path) do %>
-    <input class="new-todo" name="list[name]" placeholder="Nova lista..." autofocus>
-  <% end %>
-</header>
-<section class="main">
-  <input class="toggle-all" type="checkbox">
-  <label for="toggle-all">Mark all as complete</label>
-  <ul class="todo-list">
-    <% @lists.each do |list| %>
-      <li>
-        <div class="view">
-          <input class="toggle" type="checkbox">
-          <label><%= link_to list.name, list %></label>
-          <%= link_to list, method: :delete do %>
-            <button class="destroy"></button>
-          <% end %>
-        </div>
-        <input class="edit" value="Rule the web">
-      </li>
+<section class="todoapp">
+  <header class="header">
+    <h1>TODOs</h1>
+    <%= form_tag(list_index_path) do %>
+      <input class="new-todo" name="list[name]" placeholder="Nova lista..." autofocus>
     <% end %>
-  </ul>
-</section>
+  </header>
+  <section class="main">
+    <input class="toggle-all" type="checkbox">
+    <label for="toggle-all">Mark all as complete</label>
+    <ul class="todo-list">
+      <% @lists.each do |list| %>
+        <li>
+          <div class="view">
+            <input class="toggle" type="checkbox">
+            <label><%= link_to list.name, list %></label>
+            <%= link_to list, method: :delete do %>
+              <button class="destroy"></button>
+            <% end %>
+          </div>
+          <input class="edit" value="Rule the web">
+        </li>
+      <% end %>
+    </ul>
+  </section>
 
-<!-- <footer class="footer">
-  <span class="todo-count"><strong>0</strong> item left</span>
-  <ul class="filters">
-    <li>
-      <a class="selected" href="#/">All</a>
-    </li>
-    <li>
-      <a href="#/active">Active</a>
-    </li>
-    <li>
-      <a href="#/completed">Completed</a>
-    </li>
-  </ul>
-  <button class="clear-completed">Clear completed</button>
-</footer> -->
+  <!-- <footer class="footer">
+    <span class="todo-count"><strong>0</strong> item left</span>
+    <ul class="filters">
+      <li>
+        <a class="selected" href="#/">All</a>
+      </li>
+      <li>
+        <a href="#/active">Active</a>
+      </li>
+      <li>
+        <a href="#/completed">Completed</a>
+      </li>
+    </ul>
+    <button class="clear-completed">Clear completed</button>
+  </footer> -->
+</section>

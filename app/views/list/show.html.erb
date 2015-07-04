@@ -1,44 +1,45 @@
-<header class="header">
-  <h1><%= @list.name %></h1>
-  <%= form_tag(list_task_index_path(@list)) do %>
-    <input class="new-todo" name="task[name]" placeholder="O que precisa ser feito?" autofocus>
-  <% end %>
-</header>
-<section class="main">
-  <input class="toggle-all" type="checkbox">
-  <label for="toggle-all">Mark all as complete</label>
-  <ul class="todo-list">
-    <% @list.tasks.each do |task| %>
-      <li <%= %[class="completed"] if task.status %>>
-        <div class="view">
-          <input class="toggle" type="checkbox" <%= "checked" if task.status %>>
-          <label><%= task.name %></label>
-          <%= link_to [@list, task], method: :delete do %>
-            <button class="destroy"></button>
-          <% end %>
-        </div>
-        <input class="edit" value="Create a TodoMVC template">
-      </li>
+<section class="todoapp">
+  <header class="header">
+    <h1><%= @list.name %></h1>
+    <%= form_tag(list_task_index_path(@list)) do %>
+      <input class="new-todo" name="task[name]" placeholder="O que precisa ser feito?" autofocus>
     <% end %>
-  </ul>
-</section>
-<!-- This footer should hidden by default and shown when there are todos -->
-<footer class="footer">
-  <!-- This should be `0 items left` by default -->
-  <span class="todo-count"><strong>0</strong> item left</span>
-  <!-- Remove this if you don't implement routing -->
-  <ul class="filters">
-    <li>
-      <a class="selected" href="#/">All</a>
-    </li>
-    <li>
-      <a href="#/active">Active</a>
-    </li>
-    <li>
-      <a href="#/completed">Completed</a>
-    </li>
-  </ul>
-  <!-- Hidden if no completed items are left ↓ -->
-  <button class="clear-completed">Clear completed</button>
-</footer>
+  </header>
+  <section class="main">
+    <input class="toggle-all" type="checkbox">
+    <label for="toggle-all">Mark all as complete</label>
+    <ul class="todo-list">
+      <% @list.tasks.each do |task| %>
+        <li <%= %[class="completed"] if task.status %>>
+          <div class="view">
+            <input class="toggle" type="checkbox" <%= "checked" if task.status %>>
+            <label><%= task.name %></label>
+            <%= link_to [@list, task], method: :delete do %>
+              <button class="destroy"></button>
+            <% end %>
+          </div>
+          <input class="edit" value="Create a TodoMVC template">
+        </li>
+      <% end %>
+    </ul>
+  </section>
+  <!-- This footer should hidden by default and shown when there are todos -->
+  <footer class="footer">
+    <!-- This should be `0 items left` by default -->
+    <span class="todo-count"><strong>0</strong> item left</span>
+    <!-- Remove this if you don't implement routing -->
+    <ul class="filters">
+      <li>
+        <a class="selected" href="#/">All</a>
+      </li>
+      <li>
+        <a href="#/active">Active</a>
+      </li>
+      <li>
+        <a href="#/completed">Completed</a>
+      </li>
+    </ul>
+    <!-- Hidden if no completed items are left ↓ -->
+    <button class="clear-completed">Clear completed</button>
+  </footer>
 </section>
