@@ -22,4 +22,9 @@ class ListController < ApplicationController
     List.where(user_id: current_user.id, id: params.require(:id)).destroy_all
     redirect_to root_path
   end
+  
+  def clear
+    Task.where(list_id: params.require(:list_id), status: true).destroy_all
+    redirect_to list_path(params.require(:list_id))
+  end
 end

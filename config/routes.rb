@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'list#index'
   resources :list, only: [:index, :create, :show, :destroy] do
+    post '/clear' => 'list#clear'
     resources :task, only: [:create, :destroy] do
-      get '/toggle' => 'task#toggle'
+      post '/toggle' => 'task#toggle'
     end
   end
   
