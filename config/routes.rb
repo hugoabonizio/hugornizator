@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'list#index'
   resources :list, only: [:index, :create, :show, :destroy] do
-    resources :task, only: [:create, :destroy]
+    resources :task, only: [:create, :destroy] do
+      get '/toggle' => 'task#toggle'
+    end
   end
   
   

@@ -10,10 +10,12 @@
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
       <% @list.tasks.each do |task| %>
-        <li <%= %[class="completed"] if task.status %>>
+        <li class="<%= :completed if task.status %>">
           <div class="view">
-            <input class="toggle" type="checkbox" <%= "checked" if task.status %>>
-            <label><%= task.name %></label>
+            <%= link_to list_task_toggle_path task_id: task.id, list_id: @list.id do %>
+              <input class="toggle" type="checkbox" <%= "checked" if task.status %>>
+              <label><%= task.name %></label>
+            <% end %>
             <%= link_to [@list, task], method: :delete do %>
               <button class="destroy"></button>
             <% end %>

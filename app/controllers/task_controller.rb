@@ -12,6 +12,7 @@ class TaskController < ApplicationController
   end
   
   def toggle
-    
+    Task.find(params[:task_id]).toggle!(:status)
+    redirect_to list_path(params[:list_id])
   end
 end
